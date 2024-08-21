@@ -319,11 +319,12 @@ address {
 }
 
 .photo {
-  background-image: url("../image/cff461ae-c26b-4e58-868d-d2d2e8349f07.jpg");
+  background-image: url("../image/cff461ae-c26b-4e58-868d-d2d2e8349f07.");
   width: 360px;
   height: 450px;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 20px;
 }
 
 .nestor-main-block {
