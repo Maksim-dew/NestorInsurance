@@ -33,6 +33,6 @@ const popup = document.querySelector('.popup');
 
 btnApplication.addEventListener('click',  () => {
   popup.style.opacity = 1;
-
+  popup.style.position = "fixed";
   console.info('Заявка на страховку отправлена!')
 });

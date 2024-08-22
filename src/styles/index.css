@@ -410,12 +410,12 @@ address {
 
 
 .popup {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transition: 0.5s all;
-  min-width: 40%;
-  height: 30%;
+  /* min-width: 40%; */
+  /* height: 30%; */
   max-width: 450px;
   border-radius: 20px;
   display: flex;
@@ -425,11 +425,10 @@ address {
   opacity: 0;
   /* pointer-events: none; */
   transition: 0.5s all;
-
   transform: translate(-50%, -50%);
   background-color: #C9D1D8;
-  padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  /* padding: 20px; */
+  box-shadow: 0px 0px 10px rgb(198 85 61);
   z-index: 1;
 }
 
