@@ -81,11 +81,23 @@
   font-family: "Racama-U", sans-serif;
   margin-top: 85px;
 }
-
 .text-main {
   padding-bottom: 10px;
   font-weight: lighter;
   font-size: 20px;
+  opacity: 0;
+
+  transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+}
+
+.text-main.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.text-main.hide {
+  opacity: 0;
+  /* transform: translateX(+100%); */
 }
 
 .application {
@@ -194,7 +206,7 @@ address {
   color: rgba(0, 0, 0, 0.3);
   gap: 250px;
   font-weight: bolder;
-  margin: 0px;
+  margin: -15px;
   font-size: 128px;
 }
 
@@ -319,7 +331,7 @@ address {
 }
 
 .photo {
-  background-image: url("../image/cff461ae-c26b-4e58-868d-d2d2e8349f07.");
+  background-image: url("../image/cff461ae-c26b-4e58-868d-d2d2e8349f07.jpg");
   width: 360px;
   height: 450px;
   background-repeat: no-repeat;
@@ -398,12 +410,10 @@ address {
 
 
 .popup {
-  position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    transition: 0.5s all;
-
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transition: 0.5s all;
   min-width: 40%;
   height: 30%;
   max-width: 450px;
@@ -412,11 +422,15 @@ address {
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
-  background-color: #d9d9d9;
-
   opacity: 0;
-  pointer-events: none;
+  /* pointer-events: none; */
   transition: 0.5s all;
+
+  transform: translate(-50%, -50%);
+  background-color: #C9D1D8;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
 }
 
 .popup-header {
