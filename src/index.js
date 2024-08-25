@@ -28,30 +28,54 @@ const changeText = () => {
 
 setInterval(changeText, 3000); // Меняем текст каждые 3 секунды
 
-const btnApplication = document.querySelector('.application');
-const popup = document.querySelector('.popup');
+// const btnApplication = document.querySelector('.application');
+// const popup = document.querySelector('.popup');
 
-btnApplication.addEventListener('click',  () => {
-  popup.style.opacity = 1;
-  popup.style.position = "fixed";
-  console.info('Заявка на страховку отправлена!')
+// btnApplication.addEventListener('click',  () => {
+//   popup.style.opacity = 1;
+//   popup.style.position = "fixed";
+//   console.info('Заявка на страховку отправлена!')
+// });
+
+// const btnPopupExit = popup.querySelector('.popup-exit');
+
+// btnPopupExit.addEventListener('click',  () => {
+//   popup.style.opacity = 0;
+//   console.info('Заявка на страховку отправлена!')
+// });
+
+const dialog = document.getElementById('myDialog')
+const dialogOpener = document.querySelector('.openDialogBtn')
+const dialogCloser = dialog.querySelector('.closeDialogBtn')
+
+function closeOnBackDropClick({ currentTarget, target }) {
+  const dialog = currentTarget
+  const isClickedOnBackDrop = target === dialog
+  if (isClickedOnBackDrop) {
+    close()
+  }
+}
+
+function openModalAndLockScroll() {
+  dialog.showModal()
+  document.body.classList.add('scroll-lock')
+}
+
+function returnScroll() {
+  document.body.classList.remove('scroll-lock')
+}
+
+function close() {
+  dialog.close()
+  returnScroll()
+}
+
+dialog.addEventListener('click', closeOnBackDropClick)
+dialog.addEventListener('cancel', (event) => {
+  returnScroll()
 });
-
-const btnPopupExit = popup.querySelector('.popup-exit');
-
-btnPopupExit.addEventListener('click',  () => {
-  popup.style.opacity = 0;
-  console.info('Заявка на страховку отправлена!')
-});
-
-
-const blockType = document.querySelector('.types-insurance');
-const type_1 = blockType.querySelector('.type-01');
-const type_2 = blockType.querySelector('.type-02');
-const type_3 = blockType.querySelector('.type-03');
-const type_4 = blockType.querySelector('.type-04');
-
-
-type_1.addEventListener('click', () => {
-  console.info("type1");
+dialogOpener.addEventListener('click', openModalAndLockScroll)
+dialogCloser.addEventListener('click', (event) => {
+  event.stopPropagation()
+  close()
 });
